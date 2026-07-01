@@ -1,0 +1,37 @@
+<section id="teachers" class="py-16 sm:py-20 relative z-10 overflow-hidden
+    bg-gray-900 text-white
+    dark:bg-white/5 dark:border-y dark:border-white/5">
+    <div class="absolute top-0 right-0 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-purple-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3
+                dark:left-0 dark:right-auto dark:-translate-x-1/3 dark:bg-blue-600/10"></div>
+
+    <div class="section-container relative z-10">
+        <div class="text-center mb-10 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Наши педагоги</h2>
+            <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+                Команда профессионалов, влюбленных в свое дело. Они не просто преподают, они вдохновляют.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+            {% for teacher in teachers %}
+            <div class="bg-white/5 border border-white/10 p-5 sm:p-6 rounded-3xl hover:bg-white/10 transition-colors text-center group
+                        dark:bg-cardbg-dark dark:hover:bg-white/5">
+                <img src="{{ teacher.photo }}" alt="{{ teacher.name }}"
+                     class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full object-cover mb-4 sm:mb-6 border-4 transition-colors
+                     {% if teacher.color == 'purple' %}border-purple-500/30 group-hover:border-purple-500
+                     {% elif teacher.color == 'blue' %}border-blue-500/30 group-hover:border-blue-500
+                     {% elif teacher.color == 'fuchsia' %}border-fuchsia-500/30 group-hover:border-fuchsia-500
+                     {% else %}border-green-500/30 group-hover:border-green-500{% endif %}"
+                     loading="lazy">
+                <h3 class="text-lg sm:text-xl font-bold mb-1">{{ teacher.name }}</h3>
+                <p class="text-sm mb-3 sm:mb-4
+                    {% if teacher.color == 'purple' %}text-purple-400
+                    {% elif teacher.color == 'blue' %}text-blue-400
+                    {% elif teacher.color == 'fuchsia' %}text-fuchsia-400
+                    {% else %}text-green-400{% endif %}">{{ teacher.role }}</p>
+                <p class="text-gray-400 text-sm">{{ teacher.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

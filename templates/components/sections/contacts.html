@@ -1,0 +1,81 @@
+{% load static %}
+<section id="contacts" class="py-16 sm:py-20 lg:py-24 relative z-10
+    bg-white border-t border-gray-100
+    dark:bg-black/40 dark:border-white/5">
+    <div class="section-container">
+        <div class="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
+            <div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">Свяжитесь с нами</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 sm:mb-10 text-base sm:text-lg">
+                    Оставьте заявку или задайте вопрос. Мы с радостью расскажем вам больше о школе «Наследие».
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-5 sm:gap-6 mb-8 sm:mb-12">
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm border
+                                    bg-purple-50 text-purple-600 border-purple-100
+                                    dark:bg-purple-500/20 dark:text-purple-400 dark:border-purple-500/30 dark:shadow-none">📞</div>
+                        <div>
+                            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-1">Телефон</p>
+                            <a href="tel:+79951345050" class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ site_phone }}</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm border
+                                    bg-fuchsia-50 text-fuchsia-600 border-fuchsia-100
+                                    dark:bg-fuchsia-500/20 dark:text-fuchsia-400 dark:border-fuchsia-500/30 dark:shadow-none">✉️</div>
+                        <div class="min-w-0">
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">E-mail</p>
+                            <a href="mailto:{{ site_email }}" class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors break-all">{{ site_email }}</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 sm:gap-4 sm:col-span-2">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm border
+                                    bg-blue-50 text-blue-600 border-blue-100
+                                    dark:bg-blue-500/20 dark:text-blue-400 dark:border-blue-500/30 dark:shadow-none">📍</div>
+                        <div>
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">Адрес</p>
+                            <p class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">{{ site_address }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="card-surface p-6 sm:p-8 dark:border-white/10">
+                    {% csrf_token %}
+                    <h3 class="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-gray-900 dark:text-white">Записаться на экскурсию</h3>
+                    <div class="space-y-4">
+                        <input type="text" name="name" placeholder="Ваше имя" required class="form-input" autocomplete="name">
+                        <input type="tel" name="phone" placeholder="Номер телефона" required class="form-input" autocomplete="tel">
+                        <textarea name="comment" placeholder="Ваш комментарий или вопрос (необязательно)" rows="3" class="form-input form-textarea"></textarea>
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-base sm:text-lg py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                            Отправить заявку
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-2 sm:mt-4">
+                            Нажимая кнопку, вы соглашаетесь с
+                            <a href="#" class="underline hover:text-gray-700 dark:hover:text-gray-300">политикой конфиденциальности</a>.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden relative group
+                        shadow-xl border border-gray-200
+                        dark:border-white/10 dark:bg-cardbg-dark dark:shadow-none">
+                <img src="https://placehold.co/800x1000/e2e8f0/64748b?text=Интерактивная+карта"
+                     alt="Карта — {{ site_address }}"
+                     class="absolute inset-0 w-full h-full object-cover
+                            dark:mix-blend-luminosity dark:opacity-80 group-hover:opacity-100 dark:transition-opacity"
+                     loading="lazy">
+                <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-md border
+                            bg-white/90 border-white shadow-lg
+                            dark:bg-cardbg-dark/90 dark:border-white/10 dark:shadow-none">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-3 h-3 rounded-full bg-green-500 dark:bg-green-400 animate-pulse"></span>
+                        <span class="font-bold text-gray-900 dark:text-white">Мы открыты</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Приходите в гости, чтобы увидеть всё своими глазами!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

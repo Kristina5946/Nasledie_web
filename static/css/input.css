@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased overflow-x-hidden relative;
+    @apply bg-lightbg text-slate-800;
+    @apply dark:bg-darkbg dark:text-white;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, #a855f7, #ec4899, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dark .text-gradient {
+    background: linear-gradient(135deg, #c084fc, #f472b6, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-card {
+    @apply transition-all duration-300 ease-out;
+    @apply shadow-sm;
+    @apply dark:shadow-none;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-8px);
+    @apply shadow-xl shadow-purple-500/25;
+    @apply dark:shadow-[0_20px_40px_-15px_rgba(139,92,246,0.3)];
+  }
+
+  .gallery-img {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+  }
+
+  .glow-blob {
+    @apply absolute rounded-full -z-10;
+    filter: blur(100px);
+    @apply opacity-[0.15] dark:opacity-40;
+    @apply dark:blur-[120px];
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6;
+  }
+
+  .form-input {
+    @apply w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl outline-none transition-all resize-none;
+    @apply border border-gray-300 bg-white text-slate-800 placeholder-gray-400;
+    @apply focus:border-purple-500 focus:ring-2 focus:ring-purple-200;
+    @apply dark:border-white/10 dark:bg-darkbg dark:text-white dark:placeholder-gray-500;
+    @apply dark:focus:border-purple-500 dark:focus:ring-0;
+  }
+
+  .form-textarea {
+    @apply min-h-[100px];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all;
+    @apply bg-gray-900 text-white hover:bg-gray-800 shadow-xl shadow-gray-900/20;
+    @apply dark:bg-white dark:text-purple-900 dark:hover:bg-gray-100;
+    @apply dark:shadow-[0_0_30px_rgba(255,255,255,0.2)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all;
+    @apply bg-white border border-gray-200 text-gray-700;
+    @apply hover:border-purple-300 hover:text-purple-700 hover:bg-purple-50 shadow-sm;
+    @apply dark:bg-purple-900/30 dark:border-purple-500/40 dark:text-white;
+    @apply dark:hover:bg-purple-800/40 dark:shadow-none;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-purple-500 via-fuchsia-500 to-blue-500 text-white font-bold;
+    @apply hover:shadow-lg transition-all transform hover:scale-105;
+    @apply dark:hover:shadow-[0_0_20px_rgba(217,70,239,0.4)];
+  }
+
+  .card-surface {
+    @apply rounded-3xl border;
+    @apply bg-lightbg border-gray-100;
+    @apply dark:bg-cardbg-dark dark:border-white/10;
+  }
+}

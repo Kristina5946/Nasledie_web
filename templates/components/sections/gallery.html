@@ -1,0 +1,30 @@
+<section id="gallery" class="py-16 sm:py-20 lg:py-24 relative z-10">
+    <div class="section-container">
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">Жизнь школы</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                Потому что наше обучение — это время на спорт и творчество.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:auto-rows-[200px] lg:auto-rows-[250px]">
+            {% for item in gallery_items %}
+            <div class="rounded-2xl sm:rounded-3xl overflow-hidden group gallery-item relative shadow-sm
+                {% if item.col_span == 2 %}sm:col-span-2{% endif %}
+                {% if item.row_span == 2 %}md:row-span-2{% endif %}
+                {% if item.col_span == 1 and item.row_span == 1 %}md:col-span-1{% endif %}">
+                <img src="{{ item.image }}" alt="{{ item.alt }}"
+                     class="w-full h-full min-h-[200px] object-cover gallery-img" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent
+                            dark:from-black/90 dark:via-transparent
+                            opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-6 md:p-8">
+                    <h3 class="font-bold text-white
+                        {% if item.title_size == '2xl' %}text-xl sm:text-2xl
+                        {% elif item.title_size == 'xl' %}text-lg sm:text-xl
+                        {% else %}text-base sm:text-lg{% endif %}">{{ item.title }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

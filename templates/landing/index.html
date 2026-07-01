@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ site_name }} | Волгоград — Набор {{ enrollment_year }}{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/contact-form.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    {% include "components/sections/hero.html" %}
+    {% include "components/sections/benefits.html" %}
+    {% include "components/sections/about.html" %}
+    {% include "components/sections/teachers.html" %}
+    {% include "components/sections/gallery.html" %}
+    {% include "components/sections/contacts.html" %}
+{% endblock %}

@@ -1,0 +1,41 @@
+<section id="about" class="py-16 sm:py-20 lg:py-24 relative z-10">
+    <div class="section-container">
+        <div class="text-center mb-10 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
+                Как стать частью <span class="text-gradient">нашей семьи</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                Простой и понятный процесс поступления в 3 шага.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 relative">
+            <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 -z-10
+                        bg-gradient-to-r from-purple-200 via-fuchsia-200 to-blue-200
+                        dark:from-purple-500/30 dark:via-fuchsia-500/30 dark:to-blue-500/30"></div>
+
+            {% for step in steps %}
+            <div class="relative text-center group {% if not forloop.first %}mt-4 md:mt-0{% endif %}">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full border-4 flex items-center justify-center mb-5 sm:mb-6 transition-all
+                    {% if step.color == 'purple' %}
+                    bg-white border-purple-100 shadow-xl shadow-purple-500/10 group-hover:scale-110
+                    dark:bg-cardbg-dark dark:border-purple-500/50 dark:shadow-[0_0_30px_rgba(139,92,246,0.3)] dark:group-hover:border-purple-400
+                    {% elif step.color == 'fuchsia' %}
+                    bg-white border-fuchsia-100 shadow-xl shadow-fuchsia-500/10 group-hover:scale-110
+                    dark:bg-cardbg-dark dark:border-fuchsia-500/50 dark:shadow-[0_0_30px_rgba(217,70,239,0.3)] dark:group-hover:border-fuchsia-400
+                    {% else %}
+                    bg-white border-blue-100 shadow-xl shadow-blue-500/10 group-hover:scale-110
+                    dark:bg-cardbg-dark dark:border-blue-500/50 dark:shadow-[0_0_30px_rgba(59,130,246,0.3)] dark:group-hover:border-blue-400
+                    {% endif %}">
+                    <span class="text-2xl sm:text-3xl font-extrabold
+                        {% if step.color == 'purple' %}text-purple-600 dark:text-purple-400
+                        {% elif step.color == 'fuchsia' %}text-fuchsia-600 dark:text-fuchsia-400
+                        {% else %}text-blue-600 dark:text-blue-400{% endif %}">{{ step.number }}</span>
+                </div>
+                <h4 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">{{ step.title }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 px-2 sm:px-4 text-sm sm:text-base">{{ step.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
