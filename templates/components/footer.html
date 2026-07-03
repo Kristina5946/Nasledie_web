@@ -1,32 +1,30 @@
+{% load static %}
 <footer class="pt-12 sm:pt-16 pb-6 sm:pb-8 border-t relative z-10
     bg-gray-50 border-gray-200
-    dark:bg-[#05030a] dark:border-purple-900/30">
+    dark:bg-[#15122d] dark:border-purple-400/15">
     <div class="section-container">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
             <div>
                 <div class="flex items-center gap-2 mb-5 sm:mb-6">
-                    <svg class="w-7 h-7 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                    </svg>
+                    <img src="{% static 'images/logo.png' %}"
+                         alt="Логотип {{ site_name }}"
+                         class="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                         width="36" height="36">
                     <span class="font-bold text-xl sm:text-2xl text-gray-900 dark:text-white">Наследие</span>
                 </div>
                 <p class="text-gray-600 dark:text-gray-400 max-w-sm mb-5 sm:mb-6 text-sm sm:text-base">
-                    Семейная школа, где учеба в радость. Индивидуальный подход и комфортная среда для каждого ребенка.
+                    Образовательный центр, где учеба в радость. Индивидуальный подход и комфортная среда для каждого ребенка.
                 </p>
                 <div class="flex gap-3 sm:gap-4">
-                    <a href="#" aria-label="ВКонтакте"
+                    <a href="{{ site_vk_url }}" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте"
                        class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-colors
                               bg-white border border-gray-200 text-gray-600 hover:bg-purple-600 hover:text-white hover:border-purple-600
                               dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-purple-600 dark:hover:border-purple-500">VK</a>
-                    <a href="#" aria-label="Telegram"
-                       class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-colors
-                              bg-white border border-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600
-                              dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:border-blue-500">TG</a>
                 </div>
             </div>
 
             <div>
-                <h4 class="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white">О школе</h4>
+                <h4 class="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white">О центре</h4>
                 <ul class="space-y-2 sm:space-y-3 text-gray-600 dark:text-gray-400 font-medium text-sm sm:text-base">
                     {% for link in footer_school_links %}
                     <li><a href="{{ link.href }}" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ link.label }}</a></li>
@@ -35,17 +33,18 @@
             </div>
 
             <div class="sm:col-span-2 lg:col-span-1">
-                <h4 class="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white">Документы</h4>
+                <h4 class="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white">Контакты</h4>
                 <ul class="space-y-2 sm:space-y-3 text-gray-600 dark:text-gray-400 font-medium text-sm sm:text-base">
-                    {% for link in footer_doc_links %}
-                    <li><a href="{{ link.href }}" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ link.label }}</a></li>
-                    {% endfor %}
+                    <li><a href="tel:+79951345050" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ site_phone }}</a></li>
+                    <li><a href="mailto:{{ site_email }}" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors break-all">{{ site_email }}</a></li>
+                    <li>{{ site_address }}</li>
+                    <li><a href="{{ site_vk_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">ВКонтакте</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="pt-6 sm:pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-gray-500 text-xs sm:text-sm text-center sm:text-left">
-            <p>© 2026 Семейная школа «Наследие». Все права защищены.</p>
+            <p>© 2026 Образовательный центр «Наследие». Все права защищены.</p>
             <a href="{{ site_legacy_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 dark:hover:text-purple-400">nasledie34.insales.site</a>
         </div>
     </div>

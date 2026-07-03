@@ -1,0 +1,35 @@
+<section id="tutoring" class="py-16 sm:py-20 lg:py-24 relative z-10 section-surface bg-white border-y border-gray-100 dark:border-purple-400/10 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="section-container relative z-10">
+        <div class="text-center mb-10 sm:mb-14 max-w-3xl mx-auto">
+            <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-3">Репетиторский центр</p>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+                Раскрываем сильные стороны <span class="text-gradient">каждого ученика</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                Подберём предмет, формат и темп занятий — чтобы ребёнок чувствовал уверенность и радость от результата.
+            </p>
+        </div>
+
+        <div class="tutoring-grid">
+            {% for service in tutoring_services %}
+            <article class="tutoring-card tutoring-card--{{ service.color }}">
+                <div class="tutoring-card__icon tutoring-card__icon--{{ service.color }}">{{ service.icon }}</div>
+                <div class="tutoring-card__content">
+                    <p class="tutoring-card__subtitle">{{ service.subtitle }}</p>
+                    <h3 class="tutoring-card__title">{{ service.title }}</h3>
+                    <p class="tutoring-card__desc">{{ service.description }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="mt-8 sm:mt-10 text-center">
+            <a href="#contacts" data-track-cta="Записаться на занятие"
+               class="btn-gradient inline-flex px-8 py-3.5 rounded-2xl text-base sm:text-lg">
+                Записаться на занятие
+            </a>
+        </div>
+    </div>
+</section>

@@ -109,19 +109,20 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Site metadata (SEO / promotion)
-SITE_NAME = env('SITE_NAME', default='Семейная школа «Наследие»')
+SITE_NAME = env('SITE_NAME', default='Образовательный центр «Наследие»')
 SITE_URL = env('SITE_URL', default='http://127.0.0.1:8000')
 SITE_DESCRIPTION = (
-    'Семейная школа «Наследие» в Волгограде — индивидуальный подход, '
+    'Образовательный центр «Наследие» в Волгограде — индивидуальный подход, '
     'учёба без стресса, IT-дневник. Набор на 2026/2027 учебный год.'
 )
 SITE_KEYWORDS = (
-    'семейная школа, Волгоград, Наследие, частная школа, '
-    'индивидуальный подход, набор в школу'
+    'образовательный центр, Волгоград, Наследие, частная школа, '
+    'репетиторский центр, индивидуальный подход, набор в школу'
 )
 SITE_PHONE = '+7 (995) 134-50-50'
 SITE_EMAIL = 'skeseniya@bk.ru'
-SITE_ADDRESS = 'г. Волгоград, ул. им. И.В. Морозова, д 5'
+SITE_ADDRESS = 'г. Волгоград, ул. имени Ивана Морозова, 5, этаж 1'
+SITE_VK_URL = 'https://vk.com/darovanie34'
 SITE_LEGACY_URL = 'https://nasledie34.insales.site/'
 
 DEFAULT_THEME = 'light'

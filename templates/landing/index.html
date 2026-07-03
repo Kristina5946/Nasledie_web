@@ -5,13 +5,18 @@
 
 {% block extra_js %}
 <script src="{% static 'js/contact-form.js' %}" defer></script>
+<script src="{% static 'js/teachers-slider.js' %}" defer></script>
+<script src="{% static 'js/pricing.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
     {% include "components/sections/hero.html" %}
     {% include "components/sections/benefits.html" %}
     {% include "components/sections/about.html" %}
+    {% include "components/sections/director.html" %}
     {% include "components/sections/teachers.html" %}
+    {% include "components/sections/tutoring.html" %}
+    {% include "components/sections/pricing.html" %}
     {% include "components/sections/gallery.html" %}
     {% include "components/sections/contacts.html" %}
 {% endblock %}

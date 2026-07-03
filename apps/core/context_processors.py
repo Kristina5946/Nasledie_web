@@ -13,6 +13,7 @@ def site_settings(request):
         'site_phone': settings.SITE_PHONE,
         'site_email': settings.SITE_EMAIL,
         'site_address': settings.SITE_ADDRESS,
+        'site_vk_url': settings.SITE_VK_URL,
         'site_legacy_url': settings.SITE_LEGACY_URL,
         'default_theme': settings.DEFAULT_THEME,
         'nav_links': NAV_LINKS,

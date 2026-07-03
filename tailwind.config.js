@@ -16,14 +16,16 @@ module.exports = {
         secondary: '#3b82f6',
         accent: '#d946ef',
         lightbg: '#f8fafc',
-        darkbg: '#090514',
+        darkbg: '#1a1736',
+        'darkbg-elevated': '#242047',
         cardbg: {
           DEFAULT: '#ffffff',
-          dark: '#120b29',
+          dark: '#2e2854',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
       },
     },
   },
