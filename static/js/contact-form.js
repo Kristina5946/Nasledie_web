@@ -1,5 +1,5 @@
 /**
- * Contact form AJAX submission with UTM passthrough.
+ * Contact form AJAX submission with UTM passthrough and consent checkbox.
  */
 (function () {
   function getCsrfToken() {
@@ -38,9 +38,22 @@
     }`;
   }
 
+  function updateSubmitState(form) {
+    const consent = form.querySelector('#consent-accepted');
+    const submitBtn = form.querySelector('#contact-submit');
+    if (!submitBtn) return;
+    submitBtn.disabled = !(consent && consent.checked);
+  }
+
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
+
+    const consent = form.querySelector('#consent-accepted');
+    if (consent) {
+      consent.addEventListener('change', () => updateSubmitState(form));
+      updateSubmitState(form);
+    }
 
     form.addEventListener('focusin', () => {
       if (!form.dataset.started) {
@@ -53,7 +66,13 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const submitBtn = form.querySelector('[type=submit]');
+
+      if (!consent || !consent.checked) {
+        showMessage(form, 'Необходимо дать согласие на обработку персональных данных.', true);
+        return;
+      }
+
+      const submitBtn = form.querySelector('#contact-submit');
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка...';
@@ -76,17 +95,19 @@
           showMessage(form, data.message, false);
           form.reset();
           delete form.dataset.started;
+          updateSubmitState(form);
         } else {
           const firstError = data.errors
             ? Object.values(data.errors)[0]
             : 'Ошибка отправки. Попробуйте позже.';
           showMessage(form, firstError, true);
+          updateSubmitState(form);
         }
       } catch {
         showMessage(form, 'Ошибка сети. Проверьте подключение и попробуйте снова.', true);
+        updateSubmitState(form);
       } finally {
         if (submitBtn) {
-          submitBtn.disabled = false;
           submitBtn.textContent = 'Отправить заявку';
         }
       }

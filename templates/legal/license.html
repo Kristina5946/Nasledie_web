@@ -1,0 +1,68 @@
+{% extends "legal/document.html" %}
+{% load static %}
+
+{% block content %}
+<section class="py-12 sm:py-16 lg:py-20 relative z-10 dark-tone-base">
+    <div class="section-container">
+        <article class="legal-doc card-surface p-6 sm:p-8 lg:p-10 max-w-5xl mx-auto">
+            <header class="mb-8 pb-6 border-b border-gray-100 dark:border-purple-400/15">
+                <a href="{% url 'landing:index' %}" class="inline-flex items-center gap-1 text-sm text-purple-600 dark:text-purple-400 hover:underline mb-4">
+                    ← На главную
+                </a>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{{ document_heading }}</h1>
+                <p class="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                    Сведения о лицензии на осуществление образовательной деятельности ООО «ЕСЕНИЯ» — образовательный центр «Наследие».
+                </p>
+            </header>
+
+            <div class="legal-doc__details mb-8">
+                <p><strong>Статус лицензии:</strong> действует</p>
+                <p><strong>Регистрационный номер:</strong> № Л035-01239-34/04540213</p>
+                <p><strong>Дата предоставления:</strong> 11.03.2026</p>
+                <p><strong>Решение лицензирующего органа:</strong> приказ от 11.03.2026 № 50-у</p>
+                <p><strong>Лицензиат:</strong> ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «ЕСЕНИЯ»</p>
+                <p><strong>ИНН:</strong> 3443136285</p>
+                <p><strong>ОГРН:</strong> 1173443016779</p>
+                <p><strong>Юридический адрес:</strong> 400137, Волгоградская область, г. Волгоград, ул. им. И.В. Морозова, д. 5, помещ. III</p>
+                <p><strong>Адрес места осуществления деятельности:</strong> 400137, Волгоградская область, г. Волгоград, ул. им. И.В. Морозова, д. 5, помещ. III</p>
+                <p><strong>Лицензирующий орган:</strong> Комитет образования и науки Волгоградской области</p>
+                <p><strong>Вид деятельности:</strong> образовательная деятельность по реализации программ дополнительного образования</p>
+                <p><strong>Подвид:</strong> дополнительное образование детей и взрослых</p>
+            </div>
+
+            <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">Санитарно-эпидемиологическое заключение</h2>
+            <div class="legal-doc__details mb-8">
+                <p><strong>Номер:</strong> 34.12.01.000.M.000167.02.26</p>
+                <p><strong>Дата выдачи:</strong> 09.02.2026</p>
+                <p><strong>Организация:</strong> ООО «ЕСЕНИЯ»</p>
+                <p><strong>Адрес помещений:</strong> г. Волгоград, ул. им. И.В. Морозова, д. 5, пом. III (помещения № 1–9, общая площадь 97,9 кв. м., 1 этаж)</p>
+                <p><strong>Направление деятельности:</strong> дополнительные общеобразовательные программы для детей от 4 до 17 лет — дополнительные общеразвивающие программы социально-гуманитарной направленности</p>
+            </div>
+
+            <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">Сканы документов</h2>
+            <div class="legal-doc__scans grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <a href="{% static 'images/legal/license-extract-1.png' %}" target="_blank" rel="noopener noreferrer" class="legal-doc__scan group">
+                    <img src="{% static 'images/legal/license-extract-1.png' %}" alt="Выписка из реестра лицензий, страница 1" loading="lazy">
+                    <span class="legal-doc__scan-caption">Выписка из реестра лицензий</span>
+                </a>
+                <a href="{% static 'images/legal/license-extract-2.png' %}" target="_blank" rel="noopener noreferrer" class="legal-doc__scan group">
+                    <img src="{% static 'images/legal/license-extract-2.png' %}" alt="Выписка из реестра лицензий, страница 2" loading="lazy">
+                    <span class="legal-doc__scan-caption">Выписка из реестра лицензий (продолжение)</span>
+                </a>
+                <a href="{% static 'images/legal/sanitary-conclusion.png' %}" target="_blank" rel="noopener noreferrer" class="legal-doc__scan group">
+                    <img src="{% static 'images/legal/sanitary-conclusion.png' %}" alt="Санитарно-эпидемиологическое заключение" loading="lazy">
+                    <span class="legal-doc__scan-caption">Санитарно-эпидемиологическое заключение</span>
+                </a>
+                <a href="{% static 'images/legal/sanitary-appendix.png' %}" target="_blank" rel="noopener noreferrer" class="legal-doc__scan group">
+                    <img src="{% static 'images/legal/sanitary-appendix.png' %}" alt="Приложение к санитарно-эпидемиологическому заключению" loading="lazy">
+                    <span class="legal-doc__scan-caption">Приложение к санитарно-эпидемиологическому заключению</span>
+                </a>
+            </div>
+
+            <p class="mt-6 text-xs sm:text-sm text-gray-500 dark:text-gray-500 italic">
+                Выписка носит информационный характер. После её составления в реестр лицензий могли быть внесены изменения.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}

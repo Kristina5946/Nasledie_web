@@ -1,5 +1,5 @@
-{% load static %}
-<section id="gallery" class="py-16 sm:py-20 lg:py-24 relative z-10">
+{% load static cropping %}
+<section id="gallery" class="py-16 sm:py-20 lg:py-24 relative z-10 dark-tone-base">
     <div class="section-container">
         <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">Жизнь центра</h2>
@@ -11,7 +11,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:auto-rows-[200px] lg:auto-rows-[250px]">
             {% for item in gallery_items %}
             <div class="rounded-2xl sm:rounded-3xl overflow-hidden group gallery-item relative shadow-sm {{ item.grid_class }}">
-                <img src="{% static item.image %}" alt="{{ item.alt }}"
+                <img src="{% cropped_thumbnail item "image_cropping" %}" alt="{{ item.alt_text }}"
                      class="w-full h-full min-h-[200px] object-cover gallery-img" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent
                             dark:from-darkbg/90 dark:via-darkbg/20

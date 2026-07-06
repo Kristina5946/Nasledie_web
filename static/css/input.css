@@ -105,6 +105,14 @@
     @apply dark:bg-darkbg-elevated dark:border-purple-400/10;
   }
 
+  .dark-tone-base {
+    @apply dark:bg-darkbg;
+  }
+
+  .dark-tone-raised {
+    @apply dark:bg-darkbg-elevated dark:border-y dark:border-purple-400/10;
+  }
+
   .hero-cover {
     @apply relative w-full max-w-xs xs:max-w-sm sm:max-w-md mx-auto lg:max-w-lg lg:mx-0 lg:ml-auto;
   }
@@ -129,40 +137,6 @@
     .hero-cover__image {
       max-height: 480px;
     }
-  }
-
-  .hero-cover__stairs {
-    @apply flex items-end justify-center gap-1.5 sm:gap-2 w-full px-8 sm:px-12 -mt-4 sm:-mt-5 relative z-10;
-    filter: drop-shadow(0 10px 18px rgba(139, 92, 246, 0.3));
-  }
-
-  .hero-cover__step {
-    @apply block rounded-b-lg sm:rounded-b-xl;
-    background: linear-gradient(180deg, rgba(196, 181, 253, 0.9) 0%, rgba(139, 92, 246, 0.95) 100%);
-  }
-
-  .dark .hero-cover__step {
-    background: linear-gradient(180deg, rgba(167, 139, 250, 0.85) 0%, rgba(109, 40, 217, 0.95) 100%);
-  }
-
-  .hero-cover__step:nth-child(1) {
-    width: 18%;
-    height: 0.75rem;
-  }
-
-  .hero-cover__step:nth-child(2) {
-    width: 18%;
-    height: 1.25rem;
-  }
-
-  .hero-cover__step:nth-child(3) {
-    width: 18%;
-    height: 1.85rem;
-  }
-
-  .hero-cover__step:nth-child(4) {
-    width: 18%;
-    height: 2.5rem;
   }
 
   .director-photo {
@@ -400,5 +374,84 @@
 
   .faq-item__answer {
     @apply px-4 sm:px-5 pb-4 sm:pb-5 text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400;
+  }
+
+  .form-consent {
+    @apply flex items-start gap-3 cursor-pointer;
+  }
+
+  .form-consent__checkbox {
+    @apply mt-0.5 w-4 h-4 shrink-0 rounded border-gray-300 text-purple-600;
+    @apply focus:ring-2 focus:ring-purple-200 focus:ring-offset-0;
+    @apply dark:border-purple-400/30 dark:bg-darkbg-elevated dark:focus:ring-purple-400/30;
+  }
+
+  .form-consent__text {
+    @apply text-xs sm:text-sm leading-relaxed text-gray-600 dark:text-gray-400;
+  }
+
+  .form-consent__text a {
+    @apply text-purple-600 dark:text-purple-400 underline hover:text-purple-700 dark:hover:text-purple-300;
+  }
+
+  .legal-doc h2 {
+    @apply text-lg sm:text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3;
+  }
+
+  .legal-doc h3 {
+    @apply text-base sm:text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-2;
+  }
+
+  .legal-doc p {
+    @apply text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400 mb-3;
+  }
+
+  .legal-doc ul,
+  .legal-doc ol {
+    @apply text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400 mb-4 pl-5 space-y-2;
+  }
+
+  .legal-doc ul {
+    @apply list-disc;
+  }
+
+  .legal-doc ol.legal-doc__list {
+    @apply list-decimal space-y-4;
+  }
+
+  .legal-doc ol.legal-doc__list ul {
+    @apply mt-2 mb-0;
+  }
+
+  .legal-doc a {
+    @apply text-purple-600 dark:text-purple-400 underline hover:text-purple-700 dark:hover:text-purple-300;
+  }
+
+  .legal-doc__meta {
+    @apply text-sm text-gray-500 dark:text-gray-500 italic mb-6;
+  }
+
+  .legal-doc__details {
+    @apply rounded-2xl border border-gray-100 dark:border-purple-400/15 bg-gray-50 dark:bg-darkbg-elevated/50 p-4 sm:p-5 space-y-1;
+  }
+
+  .legal-doc__details p {
+    @apply mb-1;
+  }
+
+  .legal-doc__scans {
+    @apply mt-2;
+  }
+
+  .legal-doc__scan {
+    @apply block rounded-2xl overflow-hidden border border-gray-200 dark:border-purple-400/15 bg-white dark:bg-cardbg-dark shadow-sm transition-shadow hover:shadow-md;
+  }
+
+  .legal-doc__scan img {
+    @apply w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02];
+  }
+
+  .legal-doc__scan-caption {
+    @apply block px-4 py-3 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 border-t border-gray-100 dark:border-purple-400/10;
   }
 }

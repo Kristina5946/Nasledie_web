@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }} | {{ site_name }}{% endblock %}
+{% block canonical_path %}{{ request.path }}{% endblock %}
+
+{% block content %}
+<section class="py-12 sm:py-16 lg:py-20 relative z-10 dark-tone-base">
+    <div class="section-container">
+        <article class="legal-doc card-surface p-6 sm:p-8 lg:p-10 max-w-4xl mx-auto">
+            <header class="mb-8 pb-6 border-b border-gray-100 dark:border-purple-400/15">
+                <a href="{% url 'landing:index' %}" class="inline-flex items-center gap-1 text-sm text-purple-600 dark:text-purple-400 hover:underline mb-4">
+                    ← На главную
+                </a>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{{ document_heading }}</h1>
+            </header>
+            {% block legal_content %}{% endblock %}
+        </article>
+    </div>
+</section>
+{% endblock %}

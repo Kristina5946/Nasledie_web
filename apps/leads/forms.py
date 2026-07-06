@@ -4,6 +4,13 @@ from apps.leads.models import ContactLead
 
 
 class ContactLeadForm(forms.ModelForm):
+    consent_accepted = forms.BooleanField(
+        required=True,
+        error_messages={
+            'required': 'Необходимо дать согласие на обработку персональных данных.',
+        },
+    )
+
     class Meta:
         model = ContactLead
         fields = ['name', 'phone', 'comment']
@@ -25,6 +32,13 @@ class ContactLeadForm(forms.ModelForm):
                 'class': 'form-input form-textarea',
             }),
         }
+
+    def clean_consent_accepted(self):
+        if not self.cleaned_data.get('consent_accepted'):
+            raise forms.ValidationError(
+                'Необходимо дать согласие на обработку персональных данных.'
+            )
+        return True
 
     def clean_phone(self):
         phone = self.cleaned_data['phone']

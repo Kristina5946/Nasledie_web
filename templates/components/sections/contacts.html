@@ -1,5 +1,5 @@
 {% load static %}
-<section id="contacts" class="py-16 sm:py-20 lg:py-24 relative z-10 section-surface
+<section id="contacts" class="py-16 sm:py-20 lg:py-24 relative z-10 section-surface dark-tone-raised
     bg-white border-t border-gray-100
     dark:border-purple-400/10">
     <div class="section-container">
@@ -17,7 +17,7 @@
                                     dark:bg-purple-500/20 dark:text-purple-400 dark:border-purple-500/30 dark:shadow-none">📞</div>
                         <div>
                             <p class="text-xs sm:text-sm text-gray-500 mb-1">Телефон</p>
-                            <a href="tel:+79951345050" class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ site_phone }}</a>
+                            <a href="{{ site_contact.phone_href|default:'tel:+79951345050' }}" class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ site_phone }}</a>
                         </div>
                     </div>
                     <div class="flex items-start gap-3 sm:gap-4">
@@ -45,7 +45,7 @@
                         <div>
                             <p class="text-xs sm:text-sm text-gray-500 mb-1">ВКонтакте</p>
                             <a href="{{ site_vk_url }}" target="_blank" rel="noopener noreferrer"
-                               class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">darovanie34</a>
+                               class="font-bold text-base sm:text-lg text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">{{ site_vk_label }}</a>
                         </div>
                     </div>
                 </div>
@@ -57,13 +57,19 @@
                         <input type="text" name="name" placeholder="Ваше имя" required class="form-input" autocomplete="name">
                         <input type="tel" name="phone" placeholder="Номер телефона" required class="form-input" autocomplete="tel">
                         <textarea name="comment" placeholder="Ваш комментарий или вопрос (необязательно)" rows="3" class="form-input form-textarea"></textarea>
-                        <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-base sm:text-lg py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                        <label class="form-consent" for="consent-accepted">
+                            <input type="checkbox" name="consent_accepted" id="consent-accepted" value="true" class="form-consent__checkbox">
+                            <span class="form-consent__text">
+                                Я даю
+                                <a href="{% url 'landing:consent' %}" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a>
+                                и принимаю условия
+                                <a href="{% url 'landing:privacy' %}" target="_blank" rel="noopener noreferrer">Политики конфиденциальности</a>.
+                            </span>
+                        </label>
+                        <button type="submit" id="contact-submit" disabled
+                                class="btn-submit w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-base sm:text-lg py-3.5 sm:py-4 rounded-xl shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none enabled:hover:shadow-xl enabled:transform enabled:hover:-translate-y-1 dark:enabled:hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
                             Отправить заявку
                         </button>
-                        <p class="text-xs text-center text-gray-500 mt-2 sm:mt-4">
-                            Нажимая кнопку, вы соглашаетесь с
-                            <a href="#" class="underline hover:text-gray-700 dark:hover:text-gray-300">политикой конфиденциальности</a>.
-                        </p>
                     </div>
                 </form>
             </div>
@@ -72,15 +78,14 @@
                         shadow-xl border border-gray-200 min-h-[360px] lg:min-h-0 lg:h-full
                         dark:border-purple-400/15 dark:bg-cardbg-dark dark:shadow-none">
                 <div class="yandex-map absolute inset-0" id="yandex-map">
-                    <script type="text/javascript" charset="utf-8" async
-                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A883665ff883f454c18651416af02039f40c66e4801ea3c4adb85860b58b11224&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+                    {{ site_contact.yandex_map_script|safe }}
                 </div>
                 <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-md border pointer-events-none z-10
                             bg-white/90 border-white shadow-lg
                             dark:bg-cardbg-dark/95 dark:border-purple-400/15 dark:shadow-none">
                     <div class="flex items-center gap-3 mb-2">
                         <span class="w-3 h-3 rounded-full bg-green-500 dark:bg-green-400 animate-pulse"></span>
-                        <span class="font-bold text-gray-900 dark:text-white">Мы открыты</span>
+                        <span class="font-bold text-gray-900 dark:text-white">{{ site_contact.map_status|default:"Мы открыты" }}</span>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">{{ site_address }}</p>
                 </div>

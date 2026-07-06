@@ -22,12 +22,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'easy_thumbnails',
+    'image_cropping',
     # Project apps
     'apps.core',
     'apps.landing',
     'apps.leads',
     'apps.analytics',
 ]
+
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'easy_thumbnails.processors.scale_and_crop',
+    'easy_thumbnails.processors.filters',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
