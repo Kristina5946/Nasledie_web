@@ -58,8 +58,8 @@ class SiteContactAdmin(SingletonAdmin):
 class DirectorAdmin(ImageCroppingMixin, SingletonAdmin):
     inlines = [DirectorHighlightInline]
     list_display = ('name', 'role')
-    search_fields = ('name', 'role', 'quote')
-    fields = ('name', 'role', 'quote', 'photo', 'photo_cropping')
+    search_fields = ('name', 'role', 'quote', 'message')
+    fields = ('name', 'role', 'quote', 'message', 'education', 'photo', 'photo_cropping')
 
 
 @admin.register(FaqItem)

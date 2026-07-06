@@ -4,10 +4,10 @@
                 dark:from-darkbg-elevated dark:via-darkbg-elevated dark:to-darkbg-elevated"></div>
 
     <div class="section-container relative z-10">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 items-start">
+        <div class="director-faq-grid grid lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 lg:items-stretch">
             <!-- Директор -->
-            <div class="relative">
-                <div class="text-center lg:text-left mb-6 sm:mb-8">
+            <div class="director-faq-grid__col flex flex-col">
+                <div class="text-center lg:text-left mb-6 sm:mb-8 shrink-0">
                     <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Руководство</p>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Директор, который <span class="text-gradient">рядом с семьёй</span>
@@ -15,64 +15,82 @@
                 </div>
 
                 {% if director %}
-                <div class="absolute -inset-3 top-24 sm:top-28 lg:top-32 bg-gradient-to-br from-purple-400/20 via-fuchsia-400/10 to-blue-400/20 rounded-[2rem] blur-2xl pointer-events-none"></div>
-                <div class="relative card-surface overflow-hidden p-6 sm:p-8">
-                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8">
-                        <div class="director-photo shrink-0 mx-auto sm:mx-0">
-                            <div class="director-photo__frame">
-                                <img src="{% cropped_thumbnail director "photo_cropping" %}" alt="{{ director.name }}" class="director-photo__img">
+                <div class="relative flex-1 flex flex-col min-h-0">
+                    <div class="absolute -inset-3 top-0 bg-gradient-to-br from-purple-400/20 via-fuchsia-400/10 to-blue-400/20 rounded-[2rem] blur-2xl pointer-events-none"></div>
+                    <div class="relative card-surface overflow-hidden p-6 sm:p-8 flex-1">
+                        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                            <div class="director-photo shrink-0 mx-auto sm:mx-0">
+                                <div class="director-photo__frame">
+                                    <img src="{% cropped_thumbnail director "photo_cropping" %}" alt="{{ director.name }}" class="director-photo__img">
+                                </div>
+                                <div class="director-trophy director-trophy--photo" aria-hidden="true">
+                                    <div class="director-trophy__glow"></div>
+                                    <svg class="director-trophy__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 8h24v8c0 8-4 14-12 16-8-2-12-8-12-16V8z" fill="url(#trophyGradDir)" stroke="#d4b58c" stroke-width="1.5"/>
+                                        <path d="M12 10h8v6c0 4-2 7-6 8-2-3-2-6-2-8V10zM44 10h8v6c0 2 0 5-2 8-4-1-6-4-6-8v-6z" fill="url(#trophyGrad2Dir)" stroke="#d4b58c" stroke-width="1.2"/>
+                                        <rect x="24" y="32" width="16" height="6" rx="1" fill="#d4b58c"/>
+                                        <path d="M14 44h36v4c0 2-1 4-4 4H18c-3 0-4-2-4-4v-4z" fill="url(#trophyGrad3Dir)" stroke="#c9a96e" stroke-width="1"/>
+                                        <defs>
+                                            <linearGradient id="trophyGradDir" x1="20" y1="8" x2="44" y2="32" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#f5e6c8"/><stop offset="1" stop-color="#d4b58c"/>
+                                            </linearGradient>
+                                            <linearGradient id="trophyGrad2Dir" x1="12" y1="10" x2="52" y2="24" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#e8d4b0"/><stop offset="1" stop-color="#c9a96e"/>
+                                            </linearGradient>
+                                            <linearGradient id="trophyGrad3Dir" x1="14" y1="38" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#d4b58c"/><stop offset="1" stop-color="#a8844a"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="director-trophy director-trophy--photo" aria-hidden="true">
-                                <div class="director-trophy__glow"></div>
-                                <svg class="director-trophy__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 8h24v8c0 8-4 14-12 16-8-2-12-8-12-16V8z" fill="url(#trophyGradDir)" stroke="#d4b58c" stroke-width="1.5"/>
-                                    <path d="M12 10h8v6c0 4-2 7-6 8-2-3-2-6-2-8V10zM44 10h8v6c0 2 0 5-2 8-4-1-6-4-6-8v-6z" fill="url(#trophyGrad2Dir)" stroke="#d4b58c" stroke-width="1.2"/>
-                                    <rect x="24" y="32" width="16" height="6" rx="1" fill="#d4b58c"/>
-                                    <path d="M14 44h36v4c0 2-1 4-4 4H18c-3 0-4-2-4-4v-4z" fill="url(#trophyGrad3Dir)" stroke="#c9a96e" stroke-width="1"/>
-                                    <defs>
-                                        <linearGradient id="trophyGradDir" x1="20" y1="8" x2="44" y2="32" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#f5e6c8"/><stop offset="1" stop-color="#d4b58c"/>
-                                        </linearGradient>
-                                        <linearGradient id="trophyGrad2Dir" x1="12" y1="10" x2="52" y2="24" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#e8d4b0"/><stop offset="1" stop-color="#c9a96e"/>
-                                        </linearGradient>
-                                        <linearGradient id="trophyGrad3Dir" x1="14" y1="38" x2="50" y2="52" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#d4b58c"/><stop offset="1" stop-color="#a8844a"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
+                            <div class="flex-1 text-center sm:text-left">
+                                <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-1">Слово директора</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white leading-tight">{{ director.name }}</h3>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base mt-1 mb-4">{{ director.role }}</p>
+                                <blockquote class="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-slate-300 border-l-4 border-purple-400 pl-4 text-left">
+                                    «{{ director.quote }}»
+                                </blockquote>
+                                {% if director.message %}
+                                <div class="mt-4 space-y-3 text-sm sm:text-base leading-relaxed text-gray-600 dark:text-slate-300 text-left">
+                                    {{ director.message|linebreaks }}
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
-                        <div class="flex-1 text-center sm:text-left">
-                            <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-1">Слово директора</p>
-                            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white leading-tight">{{ director.name }}</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base mt-1 mb-4">{{ director.role }}</p>
-                            <blockquote class="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-slate-300 border-l-4 border-purple-400 pl-4 text-left">
-                                «{{ director.quote }}»
-                            </blockquote>
+                        {% if director.education %}
+                        <div class="mt-6 pt-6 border-t border-gray-100 dark:border-purple-400/10">
+                            <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Образование</p>
+                            <p class="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-slate-300">{{ director.education|linebreaks }}</p>
                         </div>
+                        {% endif %}
+                        {% if director.highlights.all %}
+                        <div class="mt-6 {% if not director.education %}pt-6 border-t border-gray-100 dark:border-purple-400/10{% endif %}">
+                            <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Награды</p>
+                            <ul class="space-y-2.5">
+                            {% for item in director.highlights.all %}
+                            <li class="flex items-center gap-3 text-sm sm:text-base text-gray-600 dark:text-slate-300">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500 shrink-0"></span>
+                                {{ item.text }}
+                            </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
                     </div>
-                    <ul class="mt-6 sm:mt-8 space-y-2.5 pt-6 border-t border-gray-100 dark:border-purple-400/10">
-                        {% for item in director.highlights.all %}
-                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-600 dark:text-slate-300">
-                            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500 shrink-0"></span>
-                            {{ item.text }}
-                        </li>
-                        {% endfor %}
-                    </ul>
                 </div>
                 {% endif %}
             </div>
 
             <!-- Вопрос-ответ -->
-            <div id="faq" class="relative">
-                <div class="text-center lg:text-left mb-6 sm:mb-8">
+            <div id="faq" class="director-faq-grid__col flex flex-col min-h-0">
+                <div class="text-center lg:text-left mb-6 sm:mb-8 shrink-0">
                     <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Вопрос-ответ</p>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Частые <span class="text-gradient">вопросы</span>
                     </h2>
                 </div>
-                <div class="faq-list faq-list--director space-y-2.5 max-h-none lg:max-h-[620px] lg:overflow-y-auto lg:pr-1" id="faq-list">
+                <div class="faq-list faq-list--director flex-1 min-h-0 space-y-2.5" id="faq-list">
                     {% for item in faq_items %}
                     <details class="faq-item group" {% if forloop.first %}open{% endif %}>
                         <summary class="faq-item__question faq-item__question--compact">

@@ -100,7 +100,9 @@ class Director(models.Model):
 
     name = models.CharField('ФИО', max_length=200)
     role = models.CharField('Должность', max_length=200)
-    quote = models.TextField('Цитата')
+    quote = models.TextField('Краткая цитата', help_text='Короткая фраза для выделения в блоке.')
+    message = models.TextField('Слово директора', blank=True)
+    education = models.TextField('Образование и курсы', blank=True)
     photo = models.ImageField('Фото', upload_to='content/director/')
     photo_cropping = ImageRatioField(
         'photo',

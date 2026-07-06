@@ -180,6 +180,13 @@
     scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
   }
 
+  @screen lg {
+    .director-faq-grid__col .faq-list--director {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+  }
+
   .faq-item__question--compact {
     @apply py-3.5 sm:py-4 text-sm;
   }

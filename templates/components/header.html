@@ -23,11 +23,12 @@
         <div class="flex items-center gap-2 sm:gap-3">
             {% include "components/theme_toggle.html" %}
 
-            <button type="button" data-track-cta="Личный кабинет"
-                    class="hidden xs:inline-flex btn-gradient px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm">
+            <a href="https://www.naslediye-dnevnik.ru" target="_blank" rel="noopener noreferrer"
+               data-track-cta="Личный кабинет"
+               class="hidden xs:inline-flex btn-gradient px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm">
                 <span class="hidden sm:inline">Личный кабинет</span>
                 <span class="sm:hidden">Кабинет</span>
-            </button>
+            </a>
 
             <button id="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav-menu"
                     class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10">
