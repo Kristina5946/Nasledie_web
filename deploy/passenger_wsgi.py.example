@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# Шаблон для reg.ru — скопировать в корень сайта как passenger_wsgi.py
+# Замените u3569663, naslediye34.ru и python3.11 на свои значения
+
+import os
+import sys
+
+sys.path.insert(0, '/var/www/u3569663/data/www/naslediye34.ru')
+sys.path.insert(1, '/var/www/u3569663/data/www/naslediye34.ru/venv/lib/python3.11/site-packages')
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings.production'
+
+from django.core.wsgi import get_wsgi_application
+
+application = get_wsgi_application()

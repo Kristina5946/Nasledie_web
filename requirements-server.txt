@@ -1,0 +1,10 @@
+# Используйте ТОЛЬКО если на хостинге нет Python 3.10+ и Django 5.1 не ставится.
+# Предпочтительно: включить Python 3.10+ в ISPmanager и ставить из requirements.txt
+Django>=4.2,<5.0
+django-environ>=0.11.2
+PyMySQL>=1.1.1
+cryptography>=42.0.0
+Pillow>=10.4.0
+whitenoise>=6.7.0
+easy-thumbnails>=2.9
+django-image-cropping>=1.7
