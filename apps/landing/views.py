@@ -1,7 +1,40 @@
 """Landing page views."""
+from urllib.parse import urlparse
+
+from django.conf import settings
+from django.http import HttpResponse
+from django.views.decorators.http import require_GET
 from django.views.generic import TemplateView
 
 from apps.landing.services import get_landing_context
+
+
+@require_GET
+def robots_txt(request):
+    """robots.txt for Yandex Webmaster and other search engines."""
+    site_url = settings.SITE_URL.rstrip('/')
+    host = urlparse(settings.SITE_URL).netloc or request.get_host()
+
+    lines = [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin/',
+        'Disallow: /api/',
+        '',
+        'User-agent: Yandex',
+        'Allow: /',
+        'Disallow: /admin/',
+        'Disallow: /api/',
+        f'Host: {host}',
+        '',
+        'User-agent: Googlebot',
+        'Allow: /',
+        'Disallow: /admin/',
+        'Disallow: /api/',
+        '',
+        f'Sitemap: {site_url}/sitemap.xml',
+    ]
+    return HttpResponse('\n'.join(lines) + '\n', content_type='text/plain; charset=utf-8')
 
 
 class IndexView(TemplateView):

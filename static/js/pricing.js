@@ -1,5 +1,6 @@
 /**
  * Pricing tier filter and card rendering.
+ * Filter buttons are built from admin data (pricing_tiers_json).
  */
 (function () {
   function initPricing() {
@@ -16,6 +17,9 @@
     } catch {
       return;
     }
+
+    const tierKeys = Object.keys(tiers);
+    if (!tierKeys.length) return;
 
     function renderCards(tierKey) {
       const tier = tiers[tierKey];
@@ -39,6 +43,10 @@
       }).join('');
     }
 
+    filterEl.innerHTML = tierKeys.map((tierKey, index) => (
+      `<button type="button" data-tier="${tierKey}" class="pricing-filter__btn${index === 0 ? ' is-active' : ''}">${tiers[tierKey].label}</button>`
+    )).join('');
+
     filterEl.querySelectorAll('.pricing-filter__btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const tierKey = btn.dataset.tier;
@@ -51,7 +59,7 @@
       });
     });
 
-    renderCards('1-4');
+    renderCards(tierKeys[0]);
   }
 
   document.addEventListener('DOMContentLoaded', initPricing);
